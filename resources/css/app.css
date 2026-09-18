@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        min-width: 320px;
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+}
+
+@layer components {
+    .admin-focus {
+        @apply focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2;
+    }
+
+    .admin-loader-progress {
+        width: 45%;
+        animation: admin-loader-slide 1.25s ease-in-out infinite;
+    }
+}
+
+@keyframes admin-loader-slide {
+    0% {
+        transform: translateX(-120%);
+    }
+
+    50% {
+        transform: translateX(120%);
+    }
+
+    100% {
+        transform: translateX(260%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .admin-loader-progress {
+        width: 100%;
+        animation: none;
+    }
+}
